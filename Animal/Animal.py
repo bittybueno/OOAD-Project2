@@ -1,8 +1,10 @@
 import abc
+from abc import ABC, abstractmethod
+import random
 
-class Animal(object): 
+class Animal(ABC): 
+    
     def __init__(self, name):
-        __metaclass__ = abc.ABCMeta
         self.name = name
         self.family = None
         self.species = None
@@ -10,6 +12,9 @@ class Animal(object):
         self.speakBehavior = None
         self.eatBehavior = None
 
+      
+
+        
     def getAnimalSpecies(self):
         return self.species
 
@@ -36,11 +41,19 @@ class Animal(object):
 
     def PerformRoamBehavior(self):
         self.roamBehavior.roam()
+        
+    def PerformSleepBehavior(self):
+        self.sleepBehavior.sleep()
+    
+    def sleep(self):
+      print(self.getAnimalName(), "the", self.getAnimalFamily(), "is asleep!\n *snores*")
 
     def printAnimal(self):
         print("This animal is a(n) " + self.getAnimalSpecies() + " of the " + self.getAnimalFamily()
                 + " family, and its name is " + self.getAnimalName())
 
+
+        
 class RoamBehavior(object):
     def roam(self):
         raise NotImplementedError
@@ -48,6 +61,10 @@ class RoamBehavior(object):
 class ZoomiesRoam(RoamBehavior):
     def roam(self):
         print("ZOOOOOMIES. ZOOOOOOOOOM.")
+
+class DoggyRoam(RoamBehavior):
+    def roam(self):
+      print("*Runs*")
 
 class StompingRoam(RoamBehavior):
     def roam(self):
@@ -77,7 +94,9 @@ class RoarSound(SpeakBehavior):
 
 class MeowSound(SpeakBehavior):
     def makeNoise(self):
-        print("meow")
+      list = ["meow", "prr", "rreeeooow", "hsssst"]
+      noise = random.choice(list)
+      print(noise)
 
 class HuffSound(SpeakBehavior):
     def makeNoise(self):
@@ -88,6 +107,8 @@ class BarkSound(SpeakBehavior):
         print("AWOOOOOOOOOOOOOOOOOO *in a badass wild tone*")
 
 
+
+################################################
 class Feline(Animal):
     def __init__(self,name):
         __metaclass__ = abc.ABCMeta
@@ -103,9 +124,44 @@ class Cat(Feline):
         super().__init__(name)
         self.speakBehavior = MeowSound()
         self.family = "Cat"
+################################################
+class Pachyderm(Animal):
+    def __init__(self,name):
+        __metaclass__ = abc.ABCMeta
+        super().__init__(name)
+        self.name = name
+        self.family = None
+        self.species = "Pachyderm"
+        self.roamBehavior = StompingRoam()
+        self.eatBehavior = Herbivore()
 
+class Rhino(Pachyderm):
+    def __init__(self, name):
+        super().__init__(name)
+        self.speakBehavior = HuffSound()
+        self.family = "Rhino"  
+################################################
+class Canine(Animal):
+    def __init__(self,name):
+        __metaclass__ = abc.ABCMeta
+        super().__init__(name)
+        self.name = name
+        self.family = None
+        self.species = "Canine"
+        self.roamBehavior = DoggyRoam()
+        self.eatBehavior = Carne()
 
+class Wolf(Canine):
+    def __init__(self, name):
+        super().__init__(name)
+        self.speakBehavior = BarkSound()
+        self.family = "Wolf" 
+
+################################################
 cathy = Cat("Cathy")
 cathy.PerformSpeakBehavior()
 cathy.PerformEatBehavior()
 cathy.PerformRoamBehavior()
+cathy.PerformSpeakBehavior()
+cathy.sleep()
+cathy.printAnimal()

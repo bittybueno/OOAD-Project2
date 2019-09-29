@@ -12,9 +12,7 @@ class Animal(ABC):
         self.speakBehavior = None
         self.eatBehavior = None
 
-      
-
-        
+     
     def getAnimalSpecies(self):
         return self.species
 
@@ -32,7 +30,8 @@ class Animal(ABC):
 
     def SetRoamBehavior(self, rb):
         self.roamBehavior = rb
-    
+        
+        
     def PerformSpeakBehavior(self):
         self.speakBehavior.makeNoise()
 
@@ -42,10 +41,13 @@ class Animal(ABC):
     def PerformRoamBehavior(self):
         self.roamBehavior.roam()
 
-    
+    def wake(self):
+      print(self.getAnimalName(), "the", self.getAnimalFamily(), "is awake!")
+            
     def sleep(self):
       print(self.getAnimalName(), "the", self.getAnimalFamily(), "is asleep!\n *snores*")
-
+    
+      
     def printAnimal(self):
         print("This animal is a(n) " + self.getAnimalSpecies() + " of the " + self.getAnimalFamily()
                 + " family, and its name is " + self.getAnimalName())
@@ -89,6 +91,10 @@ class SpeakBehavior(object):
 class RoarSound(SpeakBehavior):
     def makeNoise(self):
         print("ROARRRRR")
+        
+class RoarSound2(SpeakBehavior):
+    def makeNoise(self):
+        print("Theyyyyy're great!")
 
 class MeowSound(SpeakBehavior):
     def makeNoise(self):
@@ -99,10 +105,22 @@ class MeowSound(SpeakBehavior):
 class HuffSound(SpeakBehavior):
     def makeNoise(self):
        print("Hufffff, *kicks dirt up with horn*")
+        
+class HuffSound2(SpeakBehavior):
+    def makeNoise(self):
+       print("ppprrrrrrrrrph")
+        
+class HuffSound3(SpeakBehavior):
+    def makeNoise(self):
+       print("hungry hungry hippo!")        
 
 class BarkSound(SpeakBehavior):
     def makeNoise(self):
         print("AWOOOOOOOOOOOOOOOOOO *in a badass wild tone*")
+        
+class BarkSound2(SpeakBehavior):
+    def makeNoise(self):
+        print("ruff ruff!!")
 
 ################################################
 class Feline(Animal):
@@ -124,7 +142,7 @@ class Cat(Feline):
 class Tiger(Feline):
     def __init__(self, name):
         super().__init__(name)
-        self.speakBehavior = RoarSound()
+        self.speakBehavior = RoarSound2()
         self.family = "Tiger"
         
 class Lion(Feline):
@@ -152,13 +170,13 @@ class Rhino(Pachyderm):
 class Elephant(Pachyderm):
     def __init__(self, name):
         super().__init__(name)
-        self.speakBehavior = HuffSound()
+        self.speakBehavior = HuffSound2()
         self.family = "Elephant"
         
 class Hippo(Pachyderm):
     def __init__(self, name):
         super().__init__(name)
-        self.speakBehavior = HuffSound()
+        self.speakBehavior = HuffSound3()
         self.family = "Hippo"
 ################################################
 class Canine(Animal):
@@ -180,13 +198,121 @@ class Wolf(Canine):
 class Dog(Canine):
     def __init__(self, name):
         super().__init__(name)
-        self.speakBehavior = BarkSound()
+        self.speakBehavior = BarkSound2()
         self.family = "Dog"        
 
 ################################################
-cathy = Cat("Cathy")
-cathy.PerformSpeakBehavior()
-cathy.PerformEatBehavior()
-cathy.PerformRoamBehavior()
-cathy.sleep()
-cathy.printAnimal()
+##Creating Felines##
+Cathy = Cat("Cathy")
+Cory = Cat("Cory")
+Clyde = Cat("Clyde")
+
+Tony = Tiger("Tony")
+Tammy = Tiger("Tammy")
+
+Leo = Lion("Leo")
+Lauren = Lion("Lauren")
+##Creating Pachyderms##
+Ron = Rhino("Ron")
+Rhonda = Rhino("Rhonda")
+
+Elle = Elephant("Elle")
+Ernie = Elephant("Ernie")
+
+Henry = Hippo("Henry")
+Hannah = Hippo("Hannah")
+##Creating Canines##
+Wally = Wolf("Wally")
+Wonda = Wolf("Wonda")
+
+Doug = Dog("Doug")
+Daffy = Dog("Daffy")
+
+##Appending animals to list##
+animalList = []
+animalList.append(Cathy)
+animalList.append(Cory)
+animalList.append(Clyde)
+animalList.append(Tony)
+animalList.append(Tammy)
+animalList.append(Leo)
+animalList.append(Lauren)
+animalList.append(Ron)
+animalList.append(Rhonda)
+animalList.append(Elle)
+animalList.append(Ernie)
+animalList.append(Henry)
+animalList.append(Hannah)
+animalList.append(Wally)
+animalList.append(Wonda)
+animalList.append(Doug)
+animalList.append(Daffy)
+
+
+
+  
+#Global methods to command Animals 
+def wakeUp():
+  for i in range(len(animalList)):
+    (animalList[i].wake())
+    print()
+    
+def rollCall():
+  for i in range(len(animalList)):
+    print(animalList[i].name, " the ", animalList[i].family, " goes:")
+    (animalList[i].PerformSpeakBehavior())
+    print()
+def feed():
+  for i in range(len(animalList)):
+    print(animalList[i].name, " the ", animalList[i].family, " is ")
+    (animalList[i].PerformEatBehavior())
+    print()
+def exercise():
+  for i in range(len(animalList)):
+    print(animalList[i].name, " the ", animalList[i].family, " exercising:")
+    (animalList[i].PerformRoamBehavior())
+    print()
+def goToSleep():
+  for i in range(len(animalList)):
+    (animalList[i].sleep())
+    print()
+    
+############### ZooKeeper & ZooAnnouncer Class ##################
+
+class ZooAnnouncer: 
+    def __init__(self, name):
+        self.name = name
+        
+    def update(self, message):
+        print('{} got message "{}"'.format(self.name, message))
+
+        
+class ZooKeeper:
+    def __init__(self):
+        self.subscribers = set()
+        
+    def register(self, who):
+        self.subscribers.add(who)
+        
+    def unregister(self, who):
+        self.subscribers.discard(who)
+        
+    def dispatch(self, message):
+        for subscriber in self.subscribers:
+            subscriber.update(message)
+            
+    #for creating animals
+    def putToBed(self):
+      goToSleep()
+    
+    def wakeEm(self):
+      wakeUp()
+   
+    def feedEm(self):
+      feed()
+    
+    def exerciseEm(self):
+      exercise()
+      
+    def callEm(self):
+      rollCall()

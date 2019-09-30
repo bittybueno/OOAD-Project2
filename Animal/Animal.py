@@ -279,7 +279,7 @@ def goToSleep():
     
 ############### ZooKeeper & ZooAnnouncer Class ##################
 
-class Subscriber: 
+class ZooAnnouncer: 
     def __init__(self, name):
         self.name = name
         
@@ -289,7 +289,7 @@ class Subscriber:
 
         
         
-class Publisher:
+class ZooKeeper:
     def __init__(self):
         self.subscribers = set()
         
@@ -342,9 +342,9 @@ class Publisher:
 ############### Commands ####################
 
 
-zooKeeper = Publisher()
+zooKeeper = ZooKeeper()
 
-ZooAnnouncer = Subscriber('ZooAnnouncer')
+ZooAnnouncer = ZooAnnouncer('ZooAnnouncer')
 zooKeeper.register(ZooAnnouncer)
 
 zooKeeper.wakeEm("wake up")

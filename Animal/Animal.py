@@ -275,7 +275,7 @@ class ZooKeeper:
         for subscriber in self.subscribers:
             subscriber.update(message)
             
-    #for creating animals
+    #ZooKeepers Methods for Animals
     def putToBed(self, message):
       for subscriber in self.subscribers:
         subscriber.update(message)
@@ -285,7 +285,6 @@ class ZooKeeper:
         (animalList[i].sleep())
         print()
     
-    #ZooKeepers Methods for Animals
     def wakeEm(self, message):
       for subscriber in self.subscribers:
         subscriber.update(message)

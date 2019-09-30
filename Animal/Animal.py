@@ -279,7 +279,7 @@ def goToSleep():
     
 ############### ZooKeeper & ZooAnnouncer Class ##################
 
-class ZooAnnouncer: 
+class Subscriber: 
     def __init__(self, name):
         self.name = name
         
@@ -287,7 +287,7 @@ class ZooAnnouncer:
         print('{} got message "{}"'.format(self.name, message))
 
         
-class ZooKeeper:
+class Publisher:
     def __init__(self):
         self.subscribers = set()
         

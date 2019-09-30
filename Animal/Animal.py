@@ -248,34 +248,6 @@ animalList.append(Wonda)
 animalList.append(Doug)
 animalList.append(Daffy)
 
-
-
-  
-#Global methods to command Animals 
-def wakeUp():
-  for i in range(len(animalList)):
-    (animalList[i].wake())
-    print()
-    
-def rollCall():
-  for i in range(len(animalList)):
-    print(animalList[i].name, " the ", animalList[i].family, " goes:")
-    (animalList[i].PerformSpeakBehavior())
-    print()
-def feed():
-  for i in range(len(animalList)):
-    print(animalList[i].name, " the ", animalList[i].family, " is ")
-    (animalList[i].PerformEatBehavior())
-    print()
-def exercise():
-  for i in range(len(animalList)):
-    print(animalList[i].name, " the ", animalList[i].family, " exercising:")
-    (animalList[i].PerformRoamBehavior())
-    print()
-def goToSleep():
-  for i in range(len(animalList)):
-    (animalList[i].sleep())
-    print()
     
 ############### ZooKeeper & ZooAnnouncer Class ##################
 
@@ -309,35 +281,49 @@ class ZooKeeper:
         subscriber.update(message)
       print()
       print("ZooKeeper says, 'Bed Time!'\n")
-      goToSleep()
+      for i in range(len(animalList)):
+        (animalList[i].sleep())
+        print()
     
+    #ZooKeepers Methods for Animals
     def wakeEm(self, message):
       for subscriber in self.subscribers:
         subscriber.update(message)
       print()
       print("ZooKeeper says, 'Rise and shine!'\n")
-      wakeUp()
+      for i in range(len(animalList)):
+        (animalList[i].wake())
+        print()
    
     def feedEm(self, message):
       for subscriber in self.subscribers:
         subscriber.update(message)
       print()
       print("ZooKeeper says, 'Lunch Time!'\n")
-      feed()
+      for i in range(len(animalList)):
+        print(animalList[i].name, " the ", animalList[i].family, " is ")
+        (animalList[i].PerformEatBehavior())
+        print()
     
     def exerciseEm(self, message):
       for subscriber in self.subscribers:
         subscriber.update(message)
       print()  
       print("ZooKeeper says, 'Let's get moving!'\n")
-      exercise()
+      for i in range(len(animalList)):
+        print(animalList[i].name, " the ", animalList[i].family, " exercising:")
+        (animalList[i].PerformRoamBehavior())
+        print()
       
     def callEm(self, message):
       for subscriber in self.subscribers:
         subscriber.update(message)
       print()
       print("ZooKeeper says, 'Roll Call!'\n")      
-      rollCall()
+      for i in range(len(animalList)):
+        print(animalList[i].name, " the ", animalList[i].family, " goes:")
+        (animalList[i].PerformSpeakBehavior())
+        print()
 
 ############### Commands ####################
 

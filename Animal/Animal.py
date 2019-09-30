@@ -284,8 +284,10 @@ class Subscriber:
         self.name = name
         
     def update(self, message):
-        print('{} got message "{}"'.format(self.name, message))
+        print('{} gets the "{}" cue from the ZooKeeper'.format(self.name, message))
+        print('{} says, "Time to {} the animals!"'.format(self.name, message))
 
+        
         
 class Publisher:
     def __init__(self):
@@ -302,17 +304,55 @@ class Publisher:
             subscriber.update(message)
             
     #for creating animals
-    def putToBed(self):
+    def putToBed(self, message):
+      for subscriber in self.subscribers:
+        subscriber.update(message)
+      print()
+      print("ZooKeeper says, 'Bed Time!'\n")
       goToSleep()
     
-    def wakeEm(self):
+    def wakeEm(self, message):
+      for subscriber in self.subscribers:
+        subscriber.update(message)
+      print()
+      print("ZooKeeper says, 'Rise and shine!'\n")
       wakeUp()
    
-    def feedEm(self):
+    def feedEm(self, message):
+      for subscriber in self.subscribers:
+        subscriber.update(message)
+      print()
+      print("ZooKeeper says, 'Lunch Time!'\n")
       feed()
     
-    def exerciseEm(self):
+    def exerciseEm(self, message):
+      for subscriber in self.subscribers:
+        subscriber.update(message)
+      print()  
+      print("ZooKeeper says, 'Let's get moving!'\n")
       exercise()
       
-    def callEm(self):
+    def callEm(self, message):
+      for subscriber in self.subscribers:
+        subscriber.update(message)
+      print()
+      print("ZooKeeper says, 'Roll Call!'\n")      
       rollCall()
+
+############### Commands ####################
+
+
+zooKeeper = Publisher()
+
+ZooAnnouncer = Subscriber('ZooAnnouncer')
+zooKeeper.register(ZooAnnouncer)
+
+zooKeeper.wakeEm("wake up")
+zooKeeper.callEm("rollcall")
+zooKeeper.feedEm("feed")
+zooKeeper.exerciseEm("exercise")
+zooKeeper.putToBed("tuck in")
+
+
+
+

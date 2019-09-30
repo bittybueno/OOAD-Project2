@@ -353,6 +353,7 @@ zooKeeper.feedEm("feed")
 zooKeeper.exerciseEm("exercise")
 zooKeeper.putToBed("tuck in")
 
+zooKeeper.unregister(ZooAnnouncer)
 
 
 

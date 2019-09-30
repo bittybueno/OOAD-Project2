@@ -1,5 +1,6 @@
 # OOAD-Project2
 The OO language we chose was Python 
+
 We utilized the following patterns:
 
 **Strategy Pattern**
@@ -15,3 +16,8 @@ We utilized the following patterns:
 * To implement this pattern, two classes were created, a Subscriber (that has an update function that takes in a message) and a Publisher (that can register, unregister and dispatch subscribers.)
 >* To replicate the functionality of a ZooKeeper, the Publisher class has methods that will command the animals. When one of these methods are called by a type Publisher, any subscribers registed to the Publisher will recieve a message/cue.
 >* When the cue is recieved, the subscriber will say it "outloud" via a print statement. After announcing the message/cue, the method called will complete the remaining execution of commanding the animals to wake, sleep, eat etc...
+
+
+Sources
+
+https://www.protechtraining.com/blog/post/tutorial-the-observer-pattern-in-python-879

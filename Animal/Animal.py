@@ -3,7 +3,7 @@ import abc
 from abc import ABC, abstractmethod
 import random
 
-class Animal(ABC): 
+#Abstract Animals class with attributes of the behaviors and characteristics of an animal
     
     def __init__(self, name):
         self.name = name
@@ -13,7 +13,7 @@ class Animal(ABC):
         self.speakBehavior = None
         self.eatBehavior = None
 
-     
+   #getter methods  
     def getAnimalSpecies(self):
         return self.species
 
@@ -22,7 +22,7 @@ class Animal(ABC):
 
     def getAnimalName(self):
         return self.name
-  
+    #setter methods
     def SetSpeakBehavior(self, sb):
         self.speakBehavior = sb
     
@@ -32,7 +32,7 @@ class Animal(ABC):
     def SetRoamBehavior(self, rb):
         self.roamBehavior = rb
         
-        
+    #commands to speak, eat, roam, wake, sleep    
     def PerformSpeakBehavior(self):
         self.speakBehavior.makeNoise()
 
@@ -48,13 +48,15 @@ class Animal(ABC):
     def sleep(self):
       print(self.getAnimalName(), "the", self.getAnimalFamily(), "is asleep!\n *snores*")
     
-      
+     
+    #method to return the description of an animal 
     def printAnimal(self):
         print("This animal is a(n) " + self.getAnimalSpecies() + " of the " + self.getAnimalFamily()
                 + " family, and its name is " + self.getAnimalName())
 
+############## INTERFACES ##############
 
-############################        
+############# Using a RoamBehavior Interface to customize the behavior ###############        
 class RoamBehavior(object):
     def roam(self):
         pass
@@ -71,7 +73,7 @@ class StompingRoam(RoamBehavior):
     def roam(self):
        print("STOMP. STOMP. STOMP")
 
-############################
+########### Using an EatBehavior Interface to customize the behavior #################
 class EatBehavior(object):
     def eat(self):
         pass
@@ -84,11 +86,12 @@ class Carne(EatBehavior):
     def eat(self):
        print("Eating some meats!")
 
-############################
+############# Using a SpeakBehavior Interface to customize the behavior ###############
 class SpeakBehavior(object):
     def makeNoise(self):
         pass
-
+#to have a behavior defined on each level of inheritance, the speak behavior interface and implementations
+#is designed to be defined per animal type class (Lion, Tiger, Cat, Rhino, Elephant, Hippo, Wolf and Dog classes)
 class RoarSound(SpeakBehavior):
     def makeNoise(self):
         print("ROARRRRR")
@@ -97,7 +100,8 @@ class RoarSound2(SpeakBehavior):
     def makeNoise(self):
         print("Theyyyyy're great!")
 
-class MeowSound(SpeakBehavior):
+class MeowSound(SpeakBehavior): 
+#importing random allows for us to have any value in the array of choices of cat responses to be selected for the cat rollcall()
     def makeNoise(self):
       list = ["meow", "prr", "rreeeooow", "hsssst"]
       noise = random.choice(list)
@@ -123,7 +127,7 @@ class BarkSound2(SpeakBehavior):
     def makeNoise(self):
         print("ruff ruff!!")
 
-################################################
+################## Creating the Feline Family ##############################
 class Feline(Animal):
     def __init__(self,name):
         __metaclass__ = abc.ABCMeta
@@ -134,6 +138,7 @@ class Feline(Animal):
         self.roamBehavior = ZoomiesRoam()
         self.eatBehavior = Carne()
 
+## inheriting from Feline which inherits from ABC Animal ##
 class Cat(Feline):
     def __init__(self, name):
         super().__init__(name)
@@ -151,7 +156,7 @@ class Lion(Feline):
         super().__init__(name)
         self.speakBehavior = RoarSound()
         self.family = "Lion"        
-################################################
+################### Creating the Pachyderm Family #############################
 class Pachyderm(Animal):
     def __init__(self,name):
         __metaclass__ = abc.ABCMeta
@@ -162,6 +167,7 @@ class Pachyderm(Animal):
         self.roamBehavior = StompingRoam()
         self.eatBehavior = Herbivore()
 
+## inheriting from Pachyderm which inherits from ABC Animal ##
 class Rhino(Pachyderm):
     def __init__(self, name):
         super().__init__(name)
@@ -179,7 +185,7 @@ class Hippo(Pachyderm):
         super().__init__(name)
         self.speakBehavior = HuffSound3()
         self.family = "Hippo"
-################################################
+#################### Creating the Canine Family ############################
 class Canine(Animal):
     def __init__(self,name):
         __metaclass__ = abc.ABCMeta
@@ -190,6 +196,7 @@ class Canine(Animal):
         self.roamBehavior = DoggyRoam()
         self.eatBehavior = Carne()
 
+## inheriting from Canine which inherits from ABC Animal ##
 class Wolf(Canine):
     def __init__(self, name):
         super().__init__(name)
@@ -203,6 +210,10 @@ class Dog(Canine):
         self.family = "Dog"        
 
 ################################################
+
+#Because there are so many animals in the zoo, an array of type Animal is created
+#so the zookeeper can just call the tasks on the array rather than each animal individually
+
 ##Creating Felines##
 Cathy = Cat("Cathy")
 Cory = Cat("Cory")
@@ -213,6 +224,7 @@ Tammy = Tiger("Tammy")
 
 Leo = Lion("Leo")
 Lauren = Lion("Lauren")
+
 ##Creating Pachyderms##
 Ron = Rhino("Ron")
 Rhonda = Rhino("Rhonda")
@@ -222,6 +234,7 @@ Ernie = Elephant("Ernie")
 
 Henry = Hippo("Henry")
 Hannah = Hippo("Hannah")
+
 ##Creating Canines##
 Wally = Wolf("Wally")
 Wonda = Wolf("Wonda")
@@ -252,6 +265,7 @@ animalList.append(Daffy)
     
 ############### Subscriber & Publisher Abstract Classes ##################
 
+#A subscriber recieves a message from the publisher
 class Sub(ABC): 
     def __init__(self, name):
         self.name = name
@@ -261,7 +275,7 @@ class Sub(ABC):
 
 
    
-
+#A publisher can register and unregister subscribers and send them messages
 class Publisher(ABC):
     def __init__(self):
         self.subscribers = set()
@@ -278,16 +292,23 @@ class Publisher(ABC):
 
 
 ################# Announcer & Keeper Subclasses ##################
+
+#the Announcer subclass extends the Subscriber class so that when it recieves a message
+#from the Publisher it will acknowlege the cue was recieved and then repeat the cue to 
+#the zoo
 class Announcer(Sub):
     def __init__(self, name):
         __metaclass__ = abc.ABCMeta
         super().__init__(name)
         self.name = name  
-        
+
     def update(self, message):
         print('{} gets the "{}" cue from the ZooKeeper'.format(self.name, message))
         print('{} says, "Time to {} the animals!"'.format(self.name, message)) 
 
+#the Keeper subclass extends the Publisher class so that it can register, unregister and also
+#send messaged to any subscribers. The Keeper class also holds methods to command the animals
+#to wake up, excerise, talk, eat and sleep.
 class Keeper(Publisher):
    
         

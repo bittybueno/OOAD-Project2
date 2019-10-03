@@ -19,7 +19,7 @@ Once the Keeper is done with their tasks and sending messages to the Announcer, 
 >>* Has an update function that takes in a message
 >* **Publisher**
 >* Can register, unregister and dispatch subscribers
->* **Announcer** (
+>* **Announcer** 
 >>* A subclass of the Abstract Class Subscriber, which customizes the update method to repeat what the Publisher dispatched to their subscribers
 >* **Keeper** 
 >>* A subclass of the Abstract Publisher Class. This subclass inherits the behaviors of a Publisher while also holding the methods command the animals to wake, talk, eat, exercise, and sleep

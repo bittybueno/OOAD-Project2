@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import abc
 from abc import ABC, abstractmethod
 import random
@@ -249,19 +250,19 @@ animalList.append(Doug)
 animalList.append(Daffy)
 
     
-############### ZooKeeper & ZooAnnouncer Class ##################
+############### Subscriber & Publisher Abstract Classes ##################
 
-class ZooAnnouncer: 
+class Sub(ABC): 
     def __init__(self, name):
         self.name = name
         
     def update(self, message):
-        print('{} gets the "{}" cue from the ZooKeeper'.format(self.name, message))
-        print('{} says, "Time to {} the animals!"'.format(self.name, message))
+        pass
 
-        
-        
-class ZooKeeper:
+
+   
+
+class Publisher(ABC):
     def __init__(self):
         self.subscribers = set()
         
@@ -274,7 +275,22 @@ class ZooKeeper:
     def dispatch(self, message):
         for subscriber in self.subscribers:
             subscriber.update(message)
-            
+
+
+################# Announcer & Keeper Subclasses ##################
+class Announcer(Sub):
+    def __init__(self, name):
+        __metaclass__ = abc.ABCMeta
+        super().__init__(name)
+        self.name = name  
+        
+    def update(self, message):
+        print('{} gets the "{}" cue from the ZooKeeper'.format(self.name, message))
+        print('{} says, "Time to {} the animals!"'.format(self.name, message)) 
+
+class Keeper(Publisher):
+   
+        
     #ZooKeepers Methods for Animals
     def putToBed(self, message):
       for subscriber in self.subscribers:
@@ -327,9 +343,9 @@ class ZooKeeper:
 ############### Commands ####################
 
 
-zooKeeper = ZooKeeper()
+zooKeeper = Keeper()
 
-ZooAnnouncer = ZooAnnouncer('ZooAnnouncer')
+ZooAnnouncer = Announcer('ZooAnnouncer')
 zooKeeper.register(ZooAnnouncer)
 
 zooKeeper.wakeEm("wake up")

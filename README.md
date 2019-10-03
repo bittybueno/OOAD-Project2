@@ -11,11 +11,19 @@ We utilized the following patterns:
 >* The zookeeper's method to put the animals to bed is handled bu the function goToSleep(). (wakeEm()-> wakeUp(), feedEm()->feed(), exerciseEm()->exercise(), callEm()->rollCall())
 
 **Observer Pattern**
-*  Create a ZooAnnouncer class, ZooAnnouncer will observe the ZooKeeper (modified to be **obervable**. Before the ZooKeeper starts to perform tasks, they will create an observable event for the ZooAnnouncer. ZooAnnouncer responds by talking to the Zoo on what will happen. Once Zookeeper is done with tasks, ZooAnnouncer should cease observing and deconstruct.
+*  Create an Announcer class, Announcer will observe the Keeper. Before the Keeper commands the animals to do a tasks, the Keeper will create an observable event for the observer, the Announcer. Announcer recieves a signal from the Keeper which triggers an update method.
+Once the Keeper is done with their tasks and sending messages to the Announcer, the Keeper will unregisted the Announcer as a subscriber and the Announder ceases observing the Keeper and deconstructs.
 
-* To implement this pattern, two classes were created, a Subscriber (that has an update function that takes in a message) and a Publisher (that can register, unregister and dispatch subscribers.)
->* To replicate the functionality of a ZooKeeper, the Publisher class has methods that will command the animals. When one of these methods are called by a type Publisher, any subscribers registed to the Publisher will recieve a message/cue.
->* When the cue is recieved, the subscriber will say it "outloud" via a print statement. After announcing the message/cue, the method called will complete the remaining execution of commanding the animals to wake, sleep, eat etc...
+* To implement this pattern, four classes were created:
+>* **Subscriber**
+>>* Has an update function that takes in a message
+>* **Publisher**
+>* Can register, unregister and dispatch subscribers
+>* **Announcer** (
+>>* A subclass of the Abstract Class Subscriber, which customizes the update method to repeat what the Publisher dispatched to their subscribers
+>* **Keeper** 
+>>* A subclass of the Abstract Publisher Class. This subclass inherits the behaviors of a Publisher while also holding the methods command the animals to wake, talk, eat, exercise, and sleep
+
 
 
 Sources

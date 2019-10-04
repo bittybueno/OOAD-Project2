@@ -8,7 +8,7 @@ We utilized the following patterns:
 >>* Here our **PerformRoamBehavior** in Animals delegates the objects tasks to  **RoamBehavior**. 
 >>* Similarly, **PerformSpeakBehavior** and **PerformEatBehavior** delegated the objects tasks to **SpeakBehavior** and **EatBehavior**.
 * The zookeeper's methods to command the animals is also being delegated
->* The zookeeper's method to put the animals to bed is handled bu the function goToSleep(). (wakeEm()-> wakeUp(), feedEm()->feed(), exerciseEm()->exercise(), callEm()->rollCall())
+>* The zookeeper's method to put the animals to bed is handled by the function sleep() in the Animal Class. Similarly, wakeEm() -> wake(), feedEm()->PerformEatBehavior(), exerciseEm()->PerformRoamBehavior(), callEm()->PerformSpeakBehavior().
 
 **Observer Pattern**
 *  Create an Announcer class, Announcer will observe the Keeper. Before the Keeper commands the animals to do a tasks, the Keeper will create an observable event for the observer, the Announcer. Announcer recieves a signal from the Keeper which triggers an update method.

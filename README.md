@@ -18,7 +18,7 @@ Once the Keeper is done with their tasks and sending messages to the Announcer, 
 >* **Subscriber**
 >>* Has an update function that takes in a message
 >* **Publisher**
->* Can register, unregister and dispatch subscribers
+>>* Can register, unregister and dispatch subscribers
 >* **Announcer** 
 >>* A subclass of the Abstract Class Subscriber, which customizes the update method to repeat what the Publisher dispatched to their subscribers
 >* **Keeper** 

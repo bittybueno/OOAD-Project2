@@ -31,3 +31,5 @@ Once the Keeper is done with their tasks and sending messages to the Announcer, 
 Sources
 
 https://www.protechtraining.com/blog/post/tutorial-the-observer-pattern-in-python-879
+
+* NOTE: forgot to commit the output.txt - please note that the code was not altered before assignment due date. Thanks.

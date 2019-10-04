@@ -1,0 +1,262 @@
+ZooAnnouncer gets the "wake up" cue from the ZooKeeper
+ZooAnnouncer says, "Time to wake up the animals!"
+
+ZooKeeper says, 'Rise and shine!'
+
+Cathy the Cat is awake!
+
+Cory the Cat is awake!
+
+Clyde the Cat is awake!
+
+Tony the Tiger is awake!
+
+Tammy the Tiger is awake!
+
+Leo the Lion is awake!
+
+Lauren the Lion is awake!
+
+Ron the Rhino is awake!
+
+Rhonda the Rhino is awake!
+
+Elle the Elephant is awake!
+
+Ernie the Elephant is awake!
+
+Henry the Hippo is awake!
+
+Hannah the Hippo is awake!
+
+Wally the Wolf is awake!
+
+Wonda the Wolf is awake!
+
+Doug the Dog is awake!
+
+Daffy the Dog is awake!
+
+ZooAnnouncer gets the "rollcall" cue from the ZooKeeper
+ZooAnnouncer says, "Time to rollcall the animals!"
+
+ZooKeeper says, 'Roll Call!'
+
+Cathy  the  Cat  goes:
+prr
+
+Cory  the  Cat  goes:
+hsssst
+
+Clyde  the  Cat  goes:
+meow
+
+Tony  the  Tiger  goes:
+Theyyyyy're great!
+
+Tammy  the  Tiger  goes:
+Theyyyyy're great!
+
+Leo  the  Lion  goes:
+ROARRRRR
+
+Lauren  the  Lion  goes:
+ROARRRRR
+
+Ron  the  Rhino  goes:
+Hufffff, *kicks dirt up with horn*
+
+Rhonda  the  Rhino  goes:
+Hufffff, *kicks dirt up with horn*
+
+Elle  the  Elephant  goes:
+ppprrrrrrrrrph
+
+Ernie  the  Elephant  goes:
+ppprrrrrrrrrph
+
+Henry  the  Hippo  goes:
+hungry hungry hippo!
+
+Hannah  the  Hippo  goes:
+hungry hungry hippo!
+
+Wally  the  Wolf  goes:
+AWOOOOOOOOOOOOOOOOOO *in a badass wild tone*
+
+Wonda  the  Wolf  goes:
+AWOOOOOOOOOOOOOOOOOO *in a badass wild tone*
+
+Doug  the  Dog  goes:
+ruff ruff!!
+
+Daffy  the  Dog  goes:
+ruff ruff!!
+
+ZooAnnouncer gets the "feed" cue from the ZooKeeper
+ZooAnnouncer says, "Time to feed the animals!"
+
+ZooKeeper says, 'Lunch Time!'
+
+Cathy  the  Cat  is 
+Eating some meats!
+
+Cory  the  Cat  is 
+Eating some meats!
+
+Clyde  the  Cat  is 
+Eating some meats!
+
+Tony  the  Tiger  is 
+Eating some meats!
+
+Tammy  the  Tiger  is 
+Eating some meats!
+
+Leo  the  Lion  is 
+Eating some meats!
+
+Lauren  the  Lion  is 
+Eating some meats!
+
+Ron  the  Rhino  is 
+Cronching on some Hay and fruit
+
+Rhonda  the  Rhino  is 
+Cronching on some Hay and fruit
+
+Elle  the  Elephant  is 
+Cronching on some Hay and fruit
+
+Ernie  the  Elephant  is 
+Cronching on some Hay and fruit
+
+Henry  the  Hippo  is 
+Cronching on some Hay and fruit
+
+Hannah  the  Hippo  is 
+Cronching on some Hay and fruit
+
+Wally  the  Wolf  is 
+Eating some meats!
+
+Wonda  the  Wolf  is 
+Eating some meats!
+
+Doug  the  Dog  is 
+Eating some meats!
+
+Daffy  the  Dog  is 
+Eating some meats!
+
+ZooAnnouncer gets the "exercise" cue from the ZooKeeper
+ZooAnnouncer says, "Time to exercise the animals!"
+
+ZooKeeper says, 'Let's get moving!'
+
+Cathy  the  Cat  exercising:
+ZOOOOOMIES. ZOOOOOOOOOM.
+
+Cory  the  Cat  exercising:
+ZOOOOOMIES. ZOOOOOOOOOM.
+
+Clyde  the  Cat  exercising:
+ZOOOOOMIES. ZOOOOOOOOOM.
+
+Tony  the  Tiger  exercising:
+ZOOOOOMIES. ZOOOOOOOOOM.
+
+Tammy  the  Tiger  exercising:
+ZOOOOOMIES. ZOOOOOOOOOM.
+
+Leo  the  Lion  exercising:
+ZOOOOOMIES. ZOOOOOOOOOM.
+
+Lauren  the  Lion  exercising:
+ZOOOOOMIES. ZOOOOOOOOOM.
+
+Ron  the  Rhino  exercising:
+STOMP. STOMP. STOMP
+
+Rhonda  the  Rhino  exercising:
+STOMP. STOMP. STOMP
+
+Elle  the  Elephant  exercising:
+STOMP. STOMP. STOMP
+
+Ernie  the  Elephant  exercising:
+STOMP. STOMP. STOMP
+
+Henry  the  Hippo  exercising:
+STOMP. STOMP. STOMP
+
+Hannah  the  Hippo  exercising:
+STOMP. STOMP. STOMP
+
+Wally  the  Wolf  exercising:
+*Runs*
+
+Wonda  the  Wolf  exercising:
+*Runs*
+
+Doug  the  Dog  exercising:
+*Runs*
+
+Daffy  the  Dog  exercising:
+*Runs*
+
+ZooAnnouncer gets the "tuck in" cue from the ZooKeeper
+ZooAnnouncer says, "Time to tuck in the animals!"
+
+ZooKeeper says, 'Bed Time!'
+
+Cathy the Cat is asleep!
+ *snores*
+
+Cory the Cat is asleep!
+ *snores*
+
+Clyde the Cat is asleep!
+ *snores*
+
+Tony the Tiger is asleep!
+ *snores*
+
+Tammy the Tiger is asleep!
+ *snores*
+
+Leo the Lion is asleep!
+ *snores*
+
+Lauren the Lion is asleep!
+ *snores*
+
+Ron the Rhino is asleep!
+ *snores*
+
+Rhonda the Rhino is asleep!
+ *snores*
+
+Elle the Elephant is asleep!
+ *snores*
+
+Ernie the Elephant is asleep!
+ *snores*
+
+Henry the Hippo is asleep!
+ *snores*
+
+Hannah the Hippo is asleep!
+ *snores*
+
+Wally the Wolf is asleep!
+ *snores*
+
+Wonda the Wolf is asleep!
+ *snores*
+
+Doug the Dog is asleep!
+ *snores*
+
+Daffy the Dog is asleep!
+ *snores*

@@ -25,7 +25,7 @@ Once the Keeper is done with their tasks and sending messages to the Announcer, 
 >>* A subclass of the Abstract Publisher Class. This subclass inherits the behaviors of a Publisher while also holding the methods command the animals to wake, talk, eat, exercise, and sleep
 
 **Instructions**
-This project was created using VS Code in Python 3.6. To "visit the zoo" fun the Humans.py file! 
+* This project was created using VS Code in Python 3.6. To "visit the zoo" run the Humans.py file! 
 
 
 Sources
